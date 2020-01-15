@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+        frontend:
+                build: ./react-app
+                image: react-nginx:latest
+                ports:
+                        - "9090:80"
+                links:
+                        - api
+        api:
+                build: ./node-app
+                image: node-react-app
+                ports:
+                        - "1000:3000"
